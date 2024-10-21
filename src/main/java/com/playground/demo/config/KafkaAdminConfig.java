@@ -9,13 +9,19 @@ import org.springframework.kafka.core.KafkaAdmin;
 @Configuration
 public class KafkaAdminConfig {
 
-    @Value("${spring.kafka.template.default-topic}")
-    private String topic;
+    @Value("${spring.kafka.producer.in.topic}")
+    private String inTopic;
+
+    @Value("${spring.kafka.producer.out.topic}")
+    private String outTopic;
 
     @Bean
     public KafkaAdmin.NewTopics createTopicsBean() {
         return new KafkaAdmin.NewTopics(
-                TopicBuilder.name(topic)
-                        .build());
+                TopicBuilder.name(inTopic)
+                        .build(),
+                TopicBuilder.name(outTopic)
+                        .build()
+        );
     }
 }

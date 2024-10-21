@@ -9,13 +9,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.concurrent.TimeUnit;
 
-@Service
+//@Service
 @RequiredArgsConstructor
 @Slf4j
 public class KafkaMonitoringService {
     private final KafkaAdmin kafkaAdmin;
 
-    @Value("${spring.kafka.template.default-topic}")
+    @Value("${spring.kafka.producer.in.topic}")
     private String topic;
 
     @Scheduled(fixedDelayString = "5", timeUnit = TimeUnit.SECONDS)

@@ -1,5 +1,6 @@
 package com.playground.demo.handler;
 
+import com.playground.demo.model.Person;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Component;
 public class KafkaContainerErrorHandler implements CommonErrorHandler {
     @Override
     public boolean handleOne(Exception e, ConsumerRecord<?, ?> record, Consumer<?, ?> consumer, MessageListenerContainer container) {
-        log.error("Failed to process record", e);
+        log.error("Failed to process record {}", record.value(), e);
         return true;
     }
 
