@@ -27,7 +27,7 @@ spring:
         isolation.level: read_committed
 
 logging:
-  level.root: debug
+  level.root: error
   level:
     org.hibernate: error
     com.zaxxer: error
