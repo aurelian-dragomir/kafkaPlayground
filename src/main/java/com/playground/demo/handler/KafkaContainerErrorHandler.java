@@ -1,6 +1,5 @@
 package com.playground.demo.handler;
 
-import com.playground.demo.model.Person;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -9,7 +8,7 @@ import org.springframework.kafka.listener.CommonErrorHandler;
 import org.springframework.kafka.listener.MessageListenerContainer;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 @Slf4j
 public class KafkaContainerErrorHandler implements CommonErrorHandler {
     @Override

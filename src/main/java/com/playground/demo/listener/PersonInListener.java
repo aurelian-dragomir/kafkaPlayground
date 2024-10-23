@@ -16,7 +16,7 @@ public class PersonInListener {
     private final PersonOutSender personOutSender;
     private final PersonEntityService personEntityService;
 
-    @KafkaListener(topics = "${spring.kafka.producer.in.topic}")
+    @KafkaListener(topics = "${spring.kafka.producer.in.topic}", containerFactory = "outContainerFactory")
 //    @Transactional("outPersonKafkaTransactionManager")
     @Transactional
     public void listen(Person person) {
@@ -26,9 +26,9 @@ public class PersonInListener {
 
         personOutSender.send(person);
 
-//        if (0 < 1) {
-//            throw new RuntimeException("after producer send");
-//        }
+        if (0 < 1) {
+            throw new RuntimeException("after producer send");
+        }
 
 //        personEntityService.save(person);
         log.info("received kafka message {}", person);
