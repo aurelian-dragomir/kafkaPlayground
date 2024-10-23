@@ -17,7 +17,7 @@ public class KafkaConsumerConfig {
     private final KafkaContainerErrorHandler errorHandler;
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<Void, Person> outContainerFactory(
+    public ConcurrentKafkaListenerContainerFactory<Void, Person> kafkaListenerContainerFactory(
             ConsumerFactory<Void, Person> consumerFactory) {
         ConcurrentKafkaListenerContainerFactory<Void, Person> containerFactory = new ConcurrentKafkaListenerContainerFactory<>();
         containerFactory.setConsumerFactory(consumerFactory);
