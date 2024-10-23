@@ -9,7 +9,7 @@ import org.springframework.kafka.listener.CommonErrorHandler;
 import org.springframework.kafka.listener.MessageListenerContainer;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 @Slf4j
 public class KafkaContainerErrorHandler implements CommonErrorHandler {
     @Override

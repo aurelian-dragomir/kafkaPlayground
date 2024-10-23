@@ -1,6 +1,17 @@
 spring:
   application:
     name: demo
+  datasource:
+    url: jdbc:h2:mem:testdb;Mode=Oracle
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa.hibernate.ddl-auto: none
+  flyway:
+    locations:
+      - db/migration
+  h2:
+    console.enabled: true
   kafka:
     bootstrap-servers: localhost:9092
     #    template:
@@ -30,9 +41,14 @@ spring:
         isolation.level: read_committed
 
 logging:
-  level.root: ERROR
+  level.root: error
   level:
     com.playground.demo: debug
-    org.apache.kafka: ERROR
+    org.apache.kafka.clients.producer.internals.TransactionManager: error
+    #    org.apache.kafka.clients: debug
+    org.springframework.transaction: debug
+    org.apache.kafka: error
     org.springframework.kafka.transaction: trace
     org.springframework.kafka.core.DefaultKafkaProducerFactory: trace
+    org.springframework.kafka.listener: trace
+#    org.springframework.orm.jpa.JpaTransactionManager: debug

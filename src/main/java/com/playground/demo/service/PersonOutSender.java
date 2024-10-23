@@ -14,6 +14,7 @@ public class PersonOutSender {
         this.outPersonKafkaTemplate = outPersonKafkaTemplate;
     }
 
+    //    @Transactional("outPersonKafkaTransactionManager")
     @Transactional
     public void send(Person person) {
         outPersonKafkaTemplate.sendDefault(person);
