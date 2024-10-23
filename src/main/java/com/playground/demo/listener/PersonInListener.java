@@ -16,7 +16,7 @@ public class PersonInListener {
     private final PersonOutSender personOutSender;
     private final PersonEntityService personEntityService;
 
-    @KafkaListener(topics = "${spring.kafka.producer.in.topic}")
+    @KafkaListener(topics = "in")
 //    @Transactional("outPersonKafkaTransactionManager")
     @Transactional
     public void listen(Person person) {
